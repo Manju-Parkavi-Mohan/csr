@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-12 text-center"> 
+    <h1>{{beneficiaryName}}</h1>
+  </div>
+</div>
+<div class="row" *ngIf="beneficiary">
+  <div class="col-md-12">
+    <tabset>
+      <tab>
+        <template tabHeading>Profile</template>
+        <beneficiary-profile [beneficiary]="beneficiary"></beneficiary-profile>
+      </tab>
+      <tab>
+        <template tabHeading>Documents</template>
+          <beneficiary-document [beneficiary]="beneficiary"></beneficiary-document>
+      </tab>
+      <tab>
+        <template tabHeading>Fund Information</template>
+        Tab 3 content
+      </tab>
+    </tabset>
+  </div>
+</div>

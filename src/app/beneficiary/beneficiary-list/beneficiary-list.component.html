@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-hover" *ngIf="beneficiaries && beneficiaries.length">
+                <thead>
+                    <tr>{{listNameFilter}}</tr>
+                    <tr>
+                        <td><input class="form-control" placeholder="Search" type="text" [(ngModel)]="listNameFilter"/></td>
+                        <td></td>
+                        <td>
+                            <select class="form-control" placeholder="Search" type="text" [(ngModel)]="listCityFilter">
+                                <option>chennai</option>
+                                <option>pune</option>
+                            </select>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Beneficiary Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Secretary Name</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let beneficiary of beneficiaries | beneficiaryListFilter:listCityFilter:listNameFilter" [routerLink]="['/beneficiary',beneficiary.benficiaryId]">
+                        <td>{{beneficiary.benficiaryName}}</td>
+                        <td>{{beneficiary.benficiaryAddress}},{{beneficiary.benficiaryCity}},{{beneficiary.benficiaryState}}</td>
+                        <td>{{beneficiary.benficiaryCity}}</td>
+                        <td>{{beneficiary.benficiarySecretaryName}}</td>
+                        <td>{{beneficiary.benficiaryPhoneNumber}}</td>
+                        <td>{{beneficiary.emailAddr}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <button type="button" [routerLink]="['/beneficiary']">Add</button>
+    </div>
+</div>
